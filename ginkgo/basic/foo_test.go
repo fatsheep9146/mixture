@@ -18,7 +18,11 @@ var _ = Describe("Foo", func() {
 	})
 
 	Context("when it is at the weekend", func() {
-		f.Bar = "dog"
+		BeforeEach(func() {
+			f = Foo{
+				Bar: "dog",
+			}
+		})
 
 		It("should be a fool", func() {
 			f.Bar = "cat"
