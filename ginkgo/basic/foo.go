@@ -1,11 +1,9 @@
 package foo
 
 type Foo struct {
-   bar string 
+	Bar string
 }
 
 func Display(f Foo) string {
-   return f.bar 
+	return f.Bar
 }
-
-
