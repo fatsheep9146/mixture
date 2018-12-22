@@ -13,7 +13,7 @@ var _ = Describe("Foo", func() {
 	var g Foo
 	BeforeEach(func() {
 		f = Foo{
-			Bar: "bar",
+			Bar: "fbar0",
 		}
 	})
 
@@ -22,29 +22,38 @@ var _ = Describe("Foo", func() {
 	}
 
 	Context("when it is at the weekend", func() {
+		By("Fix Foo f")
 		BeforeEach(func() {
 			f = Foo{
-				Bar: "dog",
+				Bar: "fbar1",
 			}
 		})
 		g.Bar = "gbar1"
 
 		It("should be a fool", func() {
-			f.Bar = "cat"
-			fmt.Printf("Foo f: %v", Display(f))
-			fmt.Printf("Foo g: %v", Display(g))
+			f.Bar = "fbar2"
+			fmt.Printf("Foo f: %v\n", Display(f)) // Foo f: fbar2
+			fmt.Printf("Foo g: %v\n", Display(g)) // Foo g: gbar1
 		})
 
 		It("should not work", func() {
-			fmt.Printf("Foo f: %v", Display(f))
-			fmt.Printf("Foo g: %v", Display(g))
+			fmt.Printf("Foo f: %v\n", Display(f)) // Foo f: fbar1
+			fmt.Printf("Foo g: %v\n", Display(g)) // Foo g: gbar1
 		})
 	})
 
 	Context("when it is in the weekday", func() {
 		It("should not be a fool", func() {
-			fmt.Printf("Foo f: %v", Display(f))
-			fmt.Printf("Foo g: %v", Display(g))
+			fmt.Printf("Foo f: %v\n", Display(f)) // Foo f: fbar0
+			fmt.Printf("Foo g: %v\n", Display(g)) // Foo g: gbar1
+		})
+	})
+
+	Describe("test nested describe", func() {
+		Context("when test nested describe", func() {
+			It("should display like what", func() {
+
+			})
 		})
 	})
 
